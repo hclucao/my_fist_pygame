@@ -1,9 +1,8 @@
 from pygame import time
 from pygame.locals import *
 from sys import exit
-import dirmestre, player
-import pygame
-import os
+import dirmestre, player, word
+import pygame, os
 
 pygame.init()
 pygame.mixer.init()
@@ -20,6 +19,7 @@ pygame.display.set_caption('gg izi game')
 #import module
 dm = dirmestre.Diretorio()
 player = player.Player()
+word = word.Word()
 
 #call the module
 fps = pygame.time.Clock() #loading a component for limit of the fps
@@ -55,8 +55,9 @@ while True:
             if event.key == K_w:
                 player.up = False
 
-    
+
     player.update()
+    word.update(screen)
 
     #draw
     #pygame.draw.rect(screen, (255, 255, 255), player.word)
