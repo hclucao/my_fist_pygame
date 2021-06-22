@@ -94,7 +94,3 @@ class Player(pygame.sprite.Sprite):
             img = sprite_sheet.subsurface(( i * 32,self.lineY), (32,32))
             img = pygame.transform.scale(img, (32*3, 32*3))
             self.imagens_dinossauro.append(img)
-
-todas_as_sptites = pygame.sprite.Group()
-lucas = Player()
-todas_as_sptites.add(lucas)
