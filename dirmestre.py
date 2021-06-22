@@ -1,7 +1,7 @@
 import os
 
 class Diretorio:
-	def __init__(self):
+	def __init__(self) -> None:
 		"""module with way of files
 		just that
 		"""
@@ -9,8 +9,8 @@ class Diretorio:
 		self.diretorioIMG = os.path.join(self.diretorioMestre, 'img') # aqui vamos comecar pelo diretorio principal e dps entrar na pasta img
 		self.diretorioSound = os.path.join(self.diretorioMestre, 'sound')
 
-	def perso(self):
+	def perso(self) -> str:
 		return os.path.join(self.diretorioIMG, 'perso1.png')
 
-	def soundjump(self):
-		pass
+	def soundjump(self) -> str:
+		return os.path.join(self.diretorioSound, 'swm_jump.wav')
