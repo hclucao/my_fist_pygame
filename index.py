@@ -27,15 +27,6 @@ fps = pygame.time.Clock() #loading a component for limit of the fps
 todas_as_sptites = pygame.sprite.Group()
 todas_as_sptites.add(player)
 
-def updadeGeral():
-    player.update()
-
-    #draw
-    #pygame.draw.rect(screen, (255, 255, 255), player.word)
-    #pygame.draw.rect(screen, (25, 255, 25), player.tile)
-    todas_as_sptites.draw(screen)
-    todas_as_sptites.update()
-
 while True:
     fps.tick(25)
 
@@ -64,7 +55,14 @@ while True:
             if event.key == K_w:
                 player.up = False
 
-    updadeGeral()
+    
+    player.update()
+
+    #draw
+    #pygame.draw.rect(screen, (255, 255, 255), player.word)
+    #pygame.draw.rect(screen, (25, 255, 25), player.tile)
+    todas_as_sptites.draw(screen)
+    todas_as_sptites.update()
 
     #isso faz com que o game seja atualizado a cada frame
     pygame.display.flip()
