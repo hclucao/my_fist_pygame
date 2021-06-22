@@ -26,6 +26,12 @@ class Player(pygame.sprite.Sprite):
 
         self.index_lista = 0
         self.image = self.imagens_dinossauro[self.index_lista]
+    
+    def moviment(self):
+        """tem como propriedade listas que armazenam o posicionamento de objetos.\n
+        com possibiladade de mudança de sues valores
+        """
+        self.word_movement = [0,0]
 
     def update(self):
         self.rect = self.image.get_rect()
@@ -35,8 +41,8 @@ class Player(pygame.sprite.Sprite):
         self.image = self.imagens_dinossauro[int(self.index_lista)]
 
         #movimentacao
+        self.moviment()
         player_movement = [0,0]
-        self.word_movement = [0,0]
         if self.right and self.left == True:
             self.walkingr(0)
         else:
@@ -66,7 +72,7 @@ class Player(pygame.sprite.Sprite):
             self.pos_y += 5
         else:
             self.word_movement[1] -= 5
-        
+
         self.pos_x += player_movement[0]; self.pos_y += player_movement[1]
 
     def walkingr(self, index):
