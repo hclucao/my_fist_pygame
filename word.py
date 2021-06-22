@@ -1,6 +1,6 @@
 import pygame, dirmestre, player
 
-class word(player.Player):
+class Word(player.Player):
     def __init__(self) -> None:
         """toda a construção do mundo sera pósta aqui
         como o céu, chão... contruções no geral
@@ -13,10 +13,15 @@ class word(player.Player):
             pygame.Rect(220, 100, 50, 50)
             ]
 
-    def update(self) -> None:
-        player.Player.update(self)
+    def update(self, screen) -> None:
+        """deve ser passado a tela em que
+        tudo sera renderizado
+        """
+        player.Player.moviment(self) #herda atributos do metodo moviment, da class Player
         for block in self.blocks:
             block.copy()
-            block.x += self.word_movement[0]; block.y += self.word_movement[1]
-        word.x += self.word_movement[0]; word.y += self.word_movement[1]
+            pygame.draw.rect(screen, (0,0,255), block) #draw tiles
+        pygame.draw.rect(screen, (255, 255, 255), self.word)
+        block.x += self.word_movement[0]; block.y += self.word_movement[1]
+        self.word.x += self.word_movement[0]; self.word.y += self.word_movement[1]
         self.tile.x += self.word_movement[0]; self.tile.y += self.word_movement[1]
