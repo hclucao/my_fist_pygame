@@ -1,5 +1,9 @@
 import pygame
 import player
+import spritesheet as ss
+
+#grama = ss.Grama()
+#rect_grama = grama.get_rect()
 
 class Word:
     def __init__(self) -> None:
