@@ -1,13 +1,15 @@
-import pygame
-from pygame.locals import *
+import pygame, json
 import dirmestre
+from pygame.locals import *
 from pygame import time
 
-dm = dirmestre.Diretorio()
+dm = dirmestre.Diretorio() #chamando a 
 
 sprite_sheet = pygame.image.load(dm.perso()) #loading the spritesheet of the player
 
-word_movement = [200, 200]
+word_movement = [200, 200] #movimentação do mundo
+
+player_info = json.load(open(dm.perso_info())) #importando o json com as informaçoes do player
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -23,7 +25,7 @@ class Player(pygame.sprite.Sprite):
         self.lineY = 0
         for i in range(1, 4):
             img = sprite_sheet.subsurface(( i * 32,self.lineY), (32,32))
-            img = pygame.transform.scale(img, (32*3, 32*3))
+            img = pygame.transform.scale(img, (32*2, 32*2))
             self.imagens_dinossauro.append(img)
 
         self.index_lista = 0
@@ -76,5 +78,5 @@ class Player(pygame.sprite.Sprite):
         self.lineY = index
         for i in range(1, 4):
             img = sprite_sheet.subsurface(( i * 32,self.lineY), (32,32))
-            img = pygame.transform.scale(img, (32*3, 32*3))
+            img = pygame.transform.scale(img, (32*2, 32*2))
             self.imagens_dinossauro.append(img)
