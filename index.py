@@ -60,8 +60,6 @@ while True:
     word.update(screen)
 
     #draw
-    #pygame.draw.rect(screen, (255, 255, 255), player.word)
-    #pygame.draw.rect(screen, (25, 255, 25), player.tile)
     todas_as_sptites.draw(screen)
     todas_as_sptites.update()
 
