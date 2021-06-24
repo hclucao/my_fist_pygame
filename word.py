@@ -1,6 +1,7 @@
-import pygame, player
+import pygame
+import player
 
-class Word():
+class Word:
     def __init__(self) -> None:
         """
         toda a construção do mundo sera pósta aqui
