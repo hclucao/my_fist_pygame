@@ -7,7 +7,7 @@ dm = dirmestre.Diretorio() #chamando a
 
 sprite_sheet = pygame.image.load(dm.perso()) #loading the spritesheet of the player
 
-word_movement = [200, 200] #movimentação do mundo
+word_movement = [0, 0] #movimentação do mundo
 
 player_info = json.load(open(dm.perso_info())) #importando o json com as informaçoes do player
 
