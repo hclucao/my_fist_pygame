@@ -2,7 +2,8 @@ import pygame, player
 
 class Word():
     def __init__(self) -> None:
-        """toda a construção do mundo sera pósta aqui
+        """
+        toda a construção do mundo sera pósta aqui
         como o céu, chão... contruções no geral
         """
         self.word = pygame.Rect(200, 200, 1000,1000)
@@ -14,7 +15,8 @@ class Word():
             ]
 
     def update(self, screen) -> None:
-        """deve ser passado a tela em que
+        """
+        deve ser passado a tela em que
         tudo sera renderizado
         """
         pygame.draw.rect(screen, (255, 255, 255), self.word)
@@ -24,4 +26,3 @@ class Word():
         block.x += player.word_movement[0]; block.y += player.word_movement[1]
         self.word.x = player.word_movement[0]; self.word.y = player.word_movement[1]
         self.tile.x += player.word_movement[0]; self.tile.y += player.word_movement[1]
-        print(player.word_movement)
