@@ -48,8 +48,10 @@ while True:
         if event.type == KEYUP:
             if event.key == K_d:
                 player.right = False
+                player.walkingr(0)
             if event.key == K_a:
                 player.left = False
+                player.walkingr(32)
             if event.key == K_w:
                 player.up = False
 

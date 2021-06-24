@@ -44,20 +44,23 @@ class Player(pygame.sprite.Sprite):
             self.walkingr(0)
         else:
             if self.right == True:
-                self.walkingr(32)
+                self.walkingr(64)
                 if self.pos_x > 400:
                     word_movement[0] -=5
                 else:
-                    player_movement[0] += 3; word_movement[0] -= 5
-            else: self.walkingr(0)
+                    player_movement[0] += 3
+                    word_movement[0] -= 5
+    
             ###self.left moviment
             if self.left == True:
-                self.walkingr(64)
+                self.walkingr(96)
                 if self.pos_x < 200:
                     word_movement[0] += 5
                 else:
-                    player_movement[0] -= 3; word_movement[0] += 5
-            ###self.up moviment
+                    player_movement[0] -= 3
+                    word_movement[0] += 5
+        
+        ###self.up moviment
         if self.up == True:
             if self.pos_y > 100:
                 player_movement[1] -= 10
@@ -73,10 +76,16 @@ class Player(pygame.sprite.Sprite):
         self.pos_x += player_movement[0]; self.pos_y += player_movement[1]
 
     def walkingr(self, index):
+        """ metodo para atualização de sprite
+        0 = parado para o lado direito
+        1 = parado para o lado esquedo
+        2 = andando para o lado direito
+        3 = andando para o lado esquerdo
+        """
         pygame.sprite.Sprite.__init__(self)
         self.imagens_dinossauro = []
         self.lineY = index
         for i in range(1, 4):
-            img = sprite_sheet.subsurface(( i * 32,self.lineY), (32,32))
+            img = sprite_sheet.subsurface(( i * 32, self.lineY), (32,32))
             img = pygame.transform.scale(img, (32*2, 32*2))
             self.imagens_dinossauro.append(img)
