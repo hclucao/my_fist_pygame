@@ -8,8 +8,6 @@ pygame.init()
 pygame.mixer.init()
 
 #tamanho da tela
-largura = 640
-altura = 480
 windowsize = (640, 480)
 screen = pygame.display.set_mode((windowsize))
 
