@@ -29,5 +29,4 @@ class Word():
         block.x += player.word_movement[0]; block.y += player.word_movement[1]
         self.word.x += player.word_movement[0]; self.word.y += player.word_movement[1]
         tile.x += player.word_movement[0]; tile.y += player.word_movement[1]
-        print(block.x)
         player.word_movement = [0, 0]
