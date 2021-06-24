@@ -1,0 +1,14 @@
+{
+    "name": "lucas",
+    "vivo": "true",
+    "posx": 200,
+    "posy": 200,
+    "life": 100,
+    "exp": 0,
+    "iventario":[
+        {"slot1": "machado_de_ferro", "quantidade": 1},
+        {"slot2": "tanque_de_gas", "quantidade": 3},
+        {"slot3": "elixir_da_vida", "quantidade": 5},
+        {"slot5": "lata_velha", "quantidade": 1}
+    ]
+}
