@@ -16,6 +16,9 @@ class Diretorio:
 
 	def perso(self) -> None:
 		return os.path.join(self.diretorioIMG, 'perso2.png')
+	
+	def grama(self) -> None:
+		return os.path.join*(self.diretorioIMG, 'grama.png')
 
 	def soundjump(self) -> None:
 		return os.path.join(self.diretorioSound, 'swm_jump.wav')
