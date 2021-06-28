@@ -11,16 +11,19 @@ class Diretorio:
 		self.diretorioSound = os.path.join(self.diretorioMestre, 'sound')
 		self.diretorioJson = os.path.join(self.diretorioMestre, 'json')
 
-	def perso_info(self) -> None:
+	def perso_info(self) -> str:
 		return os.path.join(self.diretorioJson, 'player.json')
 
-	def perso(self) -> None:
+	def perso(self) -> str:
 		return os.path.join(self.diretorioIMG, 'perso2.png')
 	
-	def grama(self) -> None:
+	def grama(self) -> str:
 		return os.path.join(self.diretorioIMG, 'grama.png')
+	
+	def elements(self) -> str:
+		return os.path.join(self.diretorioIMG, "ss_elements.png")
 
-	def soundjump(self) -> None:
+	def soundjump(self) -> str:
 		return os.path.join(self.diretorioSound, 'swm_jump.wav')
 
 	def itens(self) -> str:
