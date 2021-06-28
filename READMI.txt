@@ -1,0 +1,9 @@
+HELLO, I'M LUCAS
+
+this project have a little bit of my pygame's skils
+
+but, let's talk about the game.
+it's an plataformer game has been build in python
+i'm using the framework pygame
+
+and that's about it
