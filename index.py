@@ -1,7 +1,7 @@
 from pygame import time
 from pygame.locals import *
 from sys import exit
-import dirmestre, player, word
+import dirmestre, player, word, coliders
 import pygame, os
 
 pygame.init()
@@ -22,6 +22,11 @@ word = word.Word()
 #call the module
 fps = pygame.time.Clock() #loading a component for limit of the fps
 
+"""
+adicionando as sprites no grupo, assim todas seram desenhadas
+sem ter que definir separadamente a tela em que sera feito
+
+"""
 todas_as_sptites = pygame.sprite.Group()
 todas_as_sptites.add(player)
 
@@ -55,7 +60,7 @@ while True:
             if event.key == K_w:
                 player.up = False
 
-
+    #update
     player.update()
     word.update(screen)
 

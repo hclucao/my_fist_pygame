@@ -5,7 +5,7 @@ import spritesheet as ss
 #grama = ss.Grama()
 #rect_grama = grama.get_rect()
 
-class Word:
+class Word():
     def __init__(self) -> None:
         """
         toda a construção do mundo sera pósta aqui
@@ -35,3 +35,6 @@ class Word:
         self.word.x += player.word_movement[0]; self.word.y += player.word_movement[1]
         tile.x += player.word_movement[0]; tile.y += player.word_movement[1]
         player.word_movement = [0, 0]
+
+    def infos(self):
+        self.tile

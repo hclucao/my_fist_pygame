@@ -32,6 +32,9 @@ class Player(pygame.sprite.Sprite):
         self.image = self.imagens_dinossauro[self.index_lista]
         self.rect = self.image.get_rect()
 
+    def player_infos(self):
+        return self.rect
+
     def update(self):
         self.rect.center = (self.pos_x, self.pos_y)
         self.index_lista += 0.25
