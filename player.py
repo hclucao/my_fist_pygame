@@ -46,19 +46,17 @@ class Player(pygame.sprite.Sprite):
             if self.right == True:
                 self.walkingr(64)
                 if self.pos_x > 400:
-                    word_movement[0] -=5
+                    word_movement[0] -= 4
                 else:
-                    player_movement[0] += 3
-                    word_movement[0] -= 5
+                    player_movement[0] += 4
     
             ###self.left moviment
             if self.left == True:
                 self.walkingr(96)
                 if self.pos_x < 200:
-                    word_movement[0] += 5
+                    word_movement[0] += 4
                 else:
-                    player_movement[0] -= 3
-                    word_movement[0] += 5
+                    player_movement[0] -= 4
         
         ###self.up moviment
         if self.up == True:
