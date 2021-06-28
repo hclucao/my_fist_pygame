@@ -7,14 +7,16 @@ dm = dirmestre.Diretorio() #chamando a
 
 sprite_sheet = pygame.image.load(dm.perso()) #loading the spritesheet of the player
 
-word_movement = [0, 0] #movimentação do mundo
-
 player_info = json.load(open(dm.perso_info())) #importando o json com as informaçoes do player
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         """todo que envolve o personagem
         """
+        global word_movement, player_movement, playerect, gravity
+        gravity = True
+        word_movement = [0, 0] #movimentação do mundo
+        player_movement = [0,0]
         self.left = False
         self.right = False
         self.up = False
@@ -31,6 +33,7 @@ class Player(pygame.sprite.Sprite):
         self.index_lista = 0
         self.image = self.imagens_dinossauro[self.index_lista]
         self.rect = self.image.get_rect()
+        playerect = self.rect
 
     def player_infos(self):
         return self.rect
@@ -42,7 +45,6 @@ class Player(pygame.sprite.Sprite):
         self.image = self.imagens_dinossauro[int(self.index_lista)]
 
         #movimentacao
-        player_movement = [0,0]
         if self.right and self.left == True:
             self.walkingr(0)
         else:
@@ -60,7 +62,6 @@ class Player(pygame.sprite.Sprite):
                     word_movement[0] += 4
                 else:
                     player_movement[0] -= 4
-        
         ###self.up moviment
         if self.up == True:
             if self.pos_y > 100:
@@ -68,13 +69,14 @@ class Player(pygame.sprite.Sprite):
             else:
                 word_movement[1] += 10
                 
-        #gravidade  
-        if self.pos_y < 410:
-            self.pos_y += 5
-        else:
-            word_movement[1] -= 5
+        #gravidade
+        if gravity:
+            if self.pos_y < 410:
+                player_movement[1] += 5
+            else:
+                word_movement[1] -= 5
 
-        self.pos_x += player_movement[0]; self.pos_y += player_movement[1]
+        self.pos_x = player_movement[0]; self.pos_y = player_movement[1]
 
     def walkingr(self, index):
         """ metodo para atualização de sprite

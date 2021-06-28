@@ -63,6 +63,7 @@ while True:
     #update
     player.update()
     word.update(screen)
+    coliders.Colider()
 
     #draw
     todas_as_sptites.draw(screen)
