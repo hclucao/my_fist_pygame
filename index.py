@@ -1,8 +1,7 @@
-from pygame import time
 from pygame.locals import *
 from sys import exit
 import dirmestre, player, word, coliders
-import pygame, os
+import pygame
 
 pygame.init()
 pygame.mixer.init()
