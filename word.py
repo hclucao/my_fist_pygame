@@ -1,9 +1,6 @@
 import pygame
 import player
-import spritesheet as ss
-
-#grama = ss.Grama()
-#rect_grama = grama.get_rect()
+from spritesheet import Sprite as ss
 
 class Word:
     def __init__(self) -> None:
@@ -19,6 +16,8 @@ class Word:
         self.blocks = [
             pygame.Rect(100,220, 50,50)
         ]
+        self.grama = ss.get_grama(self)
+        self.grama_rect = self.grama.get_rect()
 
     def update(self, screen) -> None:
         """
@@ -34,6 +33,7 @@ class Word:
         block.x += player.word_movement[0]; block.y += player.word_movement[1]
         self.word.x += player.word_movement[0]; self.word.y += player.word_movement[1]
         self.tile.x += player.word_movement[0]; self.tile.y += player.word_movement[1]
+        #coloca os valures em zero ao fim de cada loop para que as coisas não saia voando sem parar
         player.word_movement = [0, 0]
         global tilerect
         tilerect = self.tile

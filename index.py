@@ -19,7 +19,7 @@ player = player.Player()
 word = word.Word()
 
 #call the module
-fps = pygame.time.Clock() #loading a component for limit of the fps
+fps = pygame.time.Clock() #loading component for limit the fps
 
 """
 adicionando as sprites no grupo, assim todas seram desenhadas
@@ -28,6 +28,7 @@ sem ter que definir separadamente a tela em que sera feito
 """
 todas_as_sptites = pygame.sprite.Group()
 todas_as_sptites.add(player)
+todas_as_sptites.add(word)
 
 while True:
     fps.tick(25)
