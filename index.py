@@ -28,7 +28,6 @@ sem ter que definir separadamente a tela em que sera feito
 """
 todas_as_sptites = pygame.sprite.Group()
 todas_as_sptites.add(player)
-todas_as_sptites.add(word)
 
 while True:
     fps.tick(25)

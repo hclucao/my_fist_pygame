@@ -16,8 +16,8 @@ class Word:
         self.blocks = [
             pygame.Rect(100,220, 50,50)
         ]
-        self.grama = ss.get_grama(self)
-        self.grama_rect = self.grama.get_rect()
+        #self.grama = ss.get_grama(self)
+        #self.grama_rect = self.grama.get_rect()
 
     def update(self, screen) -> None:
         """
