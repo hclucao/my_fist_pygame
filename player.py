@@ -1,7 +1,6 @@
 import pygame, json
 import dirmestre
 from pygame.locals import *
-from pygame import time
 
 dm = dirmestre.Diretorio() #chamando a 
 
@@ -34,9 +33,6 @@ class Player(pygame.sprite.Sprite):
         self.image = self.imagens_dinossauro[self.index_lista]
         self.rect = self.image.get_rect()
         playerect = self.rect
-
-    def player_infos(self):
-        return self.rect
 
     def update(self):
         self.rect.center = (self.pos_x, self.pos_y)
