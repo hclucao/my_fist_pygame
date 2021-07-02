@@ -58,6 +58,8 @@ while True:
                 player.walkingr(32)
             if event.key == K_w:
                 player.up = False
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            print("foi")
 
     #update
     player.update()
