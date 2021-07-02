@@ -11,3 +11,5 @@ class Colider(player.Player, word.Word):
 		if player.playerect.colliderect(word.tilerect):
 			player.gravity = False
 		else: player.gravity = True
+		if player.playerect.colliderect(word.blockrect):
+			player.gravity = False

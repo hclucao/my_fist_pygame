@@ -35,5 +35,6 @@ class Word:
         self.tile.x += player.word_movement[0]; self.tile.y += player.word_movement[1]
         #coloca os valures em zero ao fim de cada loop para que as coisas não saia voando sem parar
         player.word_movement = [0, 0]
-        global tilerect
+        global tilerect, blockrect
+        blockrect = block
         tilerect = self.tile
