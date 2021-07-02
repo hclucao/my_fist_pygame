@@ -1,55 +1,44 @@
-import pygame
-from pygame.locals import *
+import pygame as pg
+import dirmestre
 import os
 
-diretorioMestre = os.path.dirname(__file__) #definindo os diretorio para que essa script rode em qualquer pc
-diretorioIMG = os.path.join(diretorioMestre, 'img') # aqui vamos comecar pelo diretorio principal e dps entrar na pasta img
-diretorioSound = os.path.join(diretorioMestre, 'sound')
+SCREEN_WIDTH = 640
+SCREEN_HEIGHT = 480
 
-pygame.init()
-screen = pygame.display.set_mode((640, 400))
+class Ball(pg.sprite.Sprite):
 
-clock = pygame.time.Clock()
-
-pygame.display.set_caption('testes')
-
-sprite_sheet = pygame.image.load(os.path.join(diretorioIMG, 'perso.png')).convert_alpha()
-
-class Dino(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.imagens_dinossauro = []
-        for i in range(1, 4):
-            img = sprite_sheet.subsurface(( i * 32,32), (32,32))
-            img = pygame.transform.scale(img, (32*3, 32*3))
-            self.imagens_dinossauro.append(img)
-
-        self.index_lista = 0
-        self.image = self.imagens_dinossauro[self.index_lista]
+    def __init__(self, pos):
+        super(Ball, self).__init__()
+        self.image = pg.image.load(os.path.join('img', 'grama.png'))
         self.rect = self.image.get_rect()
-        self.rect.center = (100,100)
+        self.rect.center = pos
 
     def update(self):
-        self.index_lista += 0.25
-        if self.index_lista == 3: self.index_lista = 0
-        self.image = self.imagens_dinossauro[int(self.index_lista)]
-
-todas_as_sptites = pygame.sprite.Group()
-dino = Dino()
-todas_as_sptites.add(dino)
+        pass
 
 
+# Initialise pygame
+pg.init()
+
+screen = pg.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
+
+# Create sprites
+ball = Ball((100, 200))
+group = pg.sprite.RenderPlain()
+group.add(ball)
+
+# Main loop, run until window closed
 running = True
 while running:
-    clock.tick(30)
-    screen.fill((255,255,255))
-    # handle every event since the last frame.
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit() # quit the screen
+
+    # Check events
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
             running = False
 
-    todas_as_sptites.draw(screen)
-    todas_as_sptites.update()
+    screen.fill((0, 0, 0))
+    group.draw(screen)
+    pg.display.flip()
 
-    pygame.display.update() # update the screen
+# close pygame
+pg.quit()

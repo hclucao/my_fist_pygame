@@ -1,18 +1,20 @@
-import pygame
+import pygame, os
+from pygame import sprite
 from dirmestre import Diretorio as dm
 
-class Sprite(object):
-    def __init__(self) -> str:
-        self.img_grama = pygame.image.load(dm.grama())
+#global variabes
+grama = pygame.image.load(os.path.join('img', 'grama.png'))
 
+class Sprite(sprite.Sprite):
+    def __init__(self) -> str:
+        sprite.Sprite.__init__(self)
+        self.grama_rect = grama.get_rect()
+        self.pos_itens = (200, 200)
+        self.grama_rect.center = (self.pos_itens)
+        self.group = pygame.sprite.RenderPlain()
+        self.group.add(grama)
+    def update(self, screen):
+        self.group.draw(screen)
     def get_grama(self):
         # Create a new blank image
-        image = pygame.Surface([32, 16]).convert()
-
-        # Copy the sprite from the large sheet onto the smaller image
-        image.blit(self.img_grama, (0, 0), (32, 16, 32, 16))
-
-        # Assuming black works as the transparent color
-        image.set_colorkey(0,0,0)
-
-        return image
+        pass

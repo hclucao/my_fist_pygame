@@ -1,6 +1,6 @@
 from pygame.locals import *
 from sys import exit
-import dirmestre, player, word, coliders
+import dirmestre, player, word, coliders, spritesheet
 import pygame
 
 pygame.init()
@@ -17,6 +17,7 @@ pygame.display.set_caption('gg izi game')
 dm = dirmestre.Diretorio()
 player = player.Player()
 word = word.Word()
+ss = spritesheet.Sprite()
 
 #call the module
 fps = pygame.time.Clock() #loading component for limit the fps
@@ -64,6 +65,7 @@ while True:
     #update
     player.update()
     word.update(screen)
+    ss.update(screen)
     coliders.Colider()
 
     #draw
